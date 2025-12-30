@@ -1,6 +1,12 @@
 # NgrxStore
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.0.4.
+The project is to demonstrate the use of NGRX to maintain application state.
+tailwind css is used in styles
+
+## Getting Started
+
+To use NgRX, install NgRx library using ng add @ngrx/store@latest command 
 
 ## Development server
 
