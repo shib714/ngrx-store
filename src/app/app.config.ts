@@ -4,6 +4,7 @@ import { provideRouter } from '@angular/router';
 import { routes } from './app.routes';
 import { provideState, provideStore } from '@ngrx/store';
 import { counterReducer } from './states/counter/counter.reducer';
+import { cartReducer } from './states/cart/cart.reducer';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -11,5 +12,6 @@ export const appConfig: ApplicationConfig = {
     provideRouter(routes),
     provideStore(),
     provideState({name: 'counter', reducer: counterReducer}),
+    provideState({name: 'cart', reducer: cartReducer}),
 ]
 };

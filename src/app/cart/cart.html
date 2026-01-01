@@ -1,14 +1,26 @@
-<!-- @if ((products$ | async).length === 0) {
-<div class="mx-auto bg-white rounded-md flex max-w-3xl flex-col space-y-4 p-6 px-2 sm:p-10 sm:px-2">
-  <h2 class="text-3xl font-bold text-center">Your cart is Empty!</h2>
-</div>
+<!-- 
+<h2 class="text-3xl font-bold">Your cart</h2>
+<span>{{cartItems$ | async | json}}</span> -->
 
+
+@if ((cartItems$ | async)?.length === 0) {
+<div class="mx-auto  rounded-md flex max-w-3xl flex-col space-y-4 p-6 px-2 sm:p-10 sm:px-2">
+  <h2 class="text-3xl font-bold text-center">Your cart is Empty!</h2>
+
+  <div class="flex justify-end space-x-4">
+    <button type="button" routerLink="/products"
+      class="rounded-md border border-purple-500 px-3 py-2 text-sm font-semibold text-purple-500 shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black">
+      Back to shop
+    </button>
+
+  </div>
+</div>
 }
 @else {
-<div class="mx-auto bg-white rounded-md flex max-w-3xl flex-col space-y-4 p-6 px-2 sm:p-10 sm:px-2">
-  <h2 class="text-3xl font-bold">Your cart</h2>
-  <ul class="flex flex-col divide-y divide-gray-200 h-[400px] overflow-y-auto">
-    @for (item of (products$ | async); track item.id) {
+<div class="mx-auto rounded-md flex max-w-3xl flex-col space-y-4 p-6 px-2 sm:p-10 sm:px-2">
+  <h2 class="text-3xl font-bold text-center">Your cart</h2>
+  <ul class="flex flex-col divide-y divide-gray-200  h-[400px] overflow-y-auto scrollbar-hide">
+    @for (item of (cartItems$ | async); track item.id) {
     <li class="flex flex-col py-6 sm:flex-row sm:justify-between">
       <div class="flex w-full space-x-2 sm:space-x-4">
         <img class="h-20 w-20 flex-shrink-0 rounded object-contain outline-none dark:border-transparent sm:h-32 sm:w-32"
@@ -26,7 +38,7 @@
             </div>
           </div>
           <div class="flex divide-x text-sm">
-            <button type="button" 
+            <button type="button" (click)="remove(item.id)"
               class="flex text-red-400 items-center space-x-2 px-2 py-1 pl-0">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -47,15 +59,15 @@
               </svg>
               <span>Add to favorites</span>
             </button>
-            Quantity Controls
+            <!--Quantity Controls -->
             <div class="quantity-controls flex items-center pl-4">
-              <button 
+              <button (click)="decrement(item.id)"
                 class="decrement-button bg-red-300 text-gray-600 hover:bg-red-400 px-2 py-1 rounded-l">
                 -
               </button>
               <input type="text" readonly class="quantity-input h-7 w-12 text-center border-t border-b"
                 [value]="item.quantity">
-              <button 
+              <button (click)="increment(item.id)"
                 class="increment-button bg-green-300 text-gray-600 hover:bg-green-400 px-2 py-1 rounded-r">
                 +
               </button>
@@ -67,9 +79,9 @@
     }
   </ul>
   <div class="space-y-1 text-right">
-    <p>
-      Total amount:<span class="font-semibold"> {{cartStore.totalPrice() | currency}}</span>
-    </p> 
+    <p class="font-semibold">
+      Total amount: <span class="font-semibold">{{tatalPrice$ | async | currency}} </span>
+    </p>
   </div>
   <div class="flex justify-end space-x-4">
     <button type="button" routerLink="/products"
@@ -82,4 +94,4 @@
     </button>
   </div>
 </div>
-} -->
+}

@@ -7,9 +7,9 @@ import { map } from 'rxjs';
     providedIn: 'root'
 })
 export class ProductApiService {
-    http = inject(HttpClient);
-    constructor() { }
 
+    http = inject(HttpClient);
+    
     getProducts() {
         return this.http.get<IProduct[]>('https://fakestoreapi.com/products')
             .pipe(
@@ -19,6 +19,7 @@ export class ProductApiService {
                     })
                 }))
             )
+                
     }
 
 }

@@ -18,7 +18,7 @@ import { increment, decrement, reset } from "../states/counter/counter.actions";
 export class Counter {
     count$: Observable<number>;
 
-    // counterStore = inject(CounterStore);
+     //counterStore = inject(CounterStore);
 
     constructor(private store: Store<AppState>) {
         this.count$ = this.store.select(selectCount);
