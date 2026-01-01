@@ -6,10 +6,11 @@ import { Store } from '@ngrx/store';
 import { selectCount } from './states/counter/counter.select';
 import { Counter } from "./counter-component/counter";
 import { CommonModule } from '@angular/common';
+import { Products } from './products/products';
 
 @Component({
   selector: 'app-root',
-  imports: [ Counter, CommonModule], 
+  imports: [ CommonModule, RouterOutlet], 
   templateUrl: './app.html',
   styleUrl: './app.css'
 })

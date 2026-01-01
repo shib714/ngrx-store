@@ -4,6 +4,8 @@ This project was generated using [Angular CLI](https://github.com/angular/angula
 The project is to demonstrate the use of NGRX to maintain application state.
 tailwind css is used in styles
 
+To load products, we use : 'https://fakestoreapi.com/products'
+
 ## Getting Started
 
 To use NgRX, install NgRx library using ng add @ngrx/store@latest command 
