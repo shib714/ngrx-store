@@ -1,13 +1,13 @@
 import { CommonModule } from '@angular/common';
-import { HttpClient } from '@angular/common/http';
 import { Component, inject } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ProductCard } from './producd-card/product-card';
 import { IProduct } from '../models/product.interface';
 import { ProductApiService } from '../services/product-api.service';
 import { Store } from '@ngrx/store';
-import { AppState } from '../states/app.state';
 import { addToCart } from '../states/cart/cart.action';
+import * as ProductActions from '../states/product/product.action';
+import * as ProductSelectors from '../states/product/product.selector';
 
 @Component({
   selector: 'products',
@@ -24,9 +24,22 @@ export class Products {
 
   private productApiService = inject(ProductApiService);
 
-  products$: Observable<IProduct[]> = this.productApiService.getProducts();
-  store = inject(Store<AppState>);
-  error!: Observable<string | null> ;
+  //before adding effects
+  //products$: Observable<IProduct[]> = this.productApiService.getProducts();
+
+  //after adding effects
+  products$: Observable<IProduct[]>;
+  error$!: Observable<string | null>;
+  constructor(private store: Store<{ cart: { products: IProduct[] } }>) {
+    this.store.dispatch(ProductActions.loadProducts());
+    this.products$ = this.store.select(ProductSelectors.selectAllProducts);
+    this.error$ = this.store.select(ProductSelectors.selectProductError);
+  }
+
+
+
+  //store = inject(Store<AppState>);
+
 
 
   //constructore based injection

@@ -18,8 +18,7 @@ export class ProductApiService {
                         return { ...product, quantity: 1 }
                     })
                 }))
-            )
-                
+            )                
     }
 
 }
