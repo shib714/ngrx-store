@@ -8,8 +8,14 @@ To load products, we use FREE api  : 'https://fakestoreapi.com/products'
 
 ## Getting Started
 
-To use NgRX, install NgRx library using ng add @ngrx/store@latest command 
-To use NgRX Effects, install NgRx effects library using ng add @ngrx/effects@latest command 
+To use NgRX, install NgRx library running command :
+```bash
+ ng add @ngrx/store@latest 
+ ```
+To use NgRX Effects, install NgRx effects library running command :
+```bash
+ng add @ngrx/effects@latest 
+``` 
 
 ## Development server
 
