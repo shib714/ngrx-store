@@ -1,14 +1,15 @@
 # NgrxStore
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.0.4.
-The project is to demonstrate the use of NGRX to maintain application state.
-tailwind css is used in styles
+The project is to demonstrate the use of NGRX  including effects using redux pattern to maintain application state.
+CSS used: [Tailwind CSS] https://ailwind css is used in styles
 
-To load products, we use : 'https://fakestoreapi.com/products'
+To load products, we use FREE api  : 'https://fakestoreapi.com/products'
 
 ## Getting Started
 
 To use NgRX, install NgRx library using ng add @ngrx/store@latest command 
+To use NgRX Effects, install NgRx effects library using ng add @ngrx/effects@latest command 
 
 ## Development server
 
