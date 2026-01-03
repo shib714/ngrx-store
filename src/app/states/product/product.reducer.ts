@@ -19,7 +19,7 @@ export const productReducer = createReducer(
         products: products,
         error: null,
     })),
-    on(ProductActions.LoadProductsFailure, (state, { errorMessage }) => ({
+    on(ProductActions.loadProductsFailure, (state, { errorMessage }) => ({
         ...state,
         error: errorMessage,
     }))

@@ -8,6 +8,6 @@ export const loadProductsSuccess = createAction(
     '[Product Component] Load Products Success', props<{ products: IProduct[]}>()
 );
 
-export const LoadProductsFailure = createAction(
+export const loadProductsFailure = createAction(
     '[Product Component] Load Products Failure', props<{ errorMessage: string }>()
 );
