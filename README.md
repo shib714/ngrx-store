@@ -1,8 +1,10 @@
 # NgrxStore
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.0.4.
-The project is to demonstrate the use of NGRX  including effects using redux pattern to maintain application state.
+
+The project is to demonstrate the use of NGRX  signal store including NGRX effects using redux pattern to maintain application state.
 CSS used: [Tailwind CSS] https://ailwind css is used in styles
+Inspired by : https://www.youtube.com/watch?v=Szmkp5xxOUo&t=21s
 
 To load products, we use FREE api  : 'https://fakestoreapi.com/products'
 
@@ -16,6 +18,9 @@ To use NgRX Effects, install NgRx effects library running command :
 ```bash
 ng add @ngrx/effects@latest 
 ``` 
+To use NgRX Signal store, install NgRx signal store library running command :
+```bash
+ng add @ngrx/signals@latest
 
 ## Development server
 
