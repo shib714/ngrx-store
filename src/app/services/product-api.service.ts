@@ -43,8 +43,3 @@ export class ProductApiService {
 }
 
 
-
-
-
-
-}

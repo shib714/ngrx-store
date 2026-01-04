@@ -8,11 +8,12 @@ import { CommonModule } from '@angular/common';
 
 import { CartStore } from './store/cart.store';
 import { decrement, increment, reset } from './states/counter/counter.actions';
+import { Nav } from './nav/nav';
 //For help: https://www.youtube.com/watch?v=aym8Yntel2E&t=1945s
 
 @Component({
   selector: 'app-root',
-  imports: [ CommonModule, RouterOutlet, RouterLink], 
+  imports: [ Nav, CommonModule, RouterOutlet, RouterLink], 
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
