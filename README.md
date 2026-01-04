@@ -1,79 +1,23 @@
-# NgrxStore
+# NgrxStore deep dive
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.0.4.
 
-The project (Inspired by : https://www.youtube.com/watch?v=Szmkp5xxOUo&t=21s) demonstrates the use of NGRX signal store (cart.store.ts) and NgRx  effects (states/products/..) with redux pattern to maintain application state.
+# Project Description
+Expense Tracker application demonstrate the use of NGRX RXJS  with Angular from start to finish. In this project, we focused on solidifying core NgRx concepts and dive deep into creating powerful derived selectors to build a dynamic dashboard that calculates totals, income, expenses, and your net balance automatically.
 
-Styles: Tailwind CSS https://ailwind is used in styles
-We use FREE api  : 'https://fakestoreapi.com/products' to load products
+# Technology Used
 
-## Getting Started
+NGRX with store, effects, JSON-SERVER to simulate CRUD operations
 
-To use NgRX, install NgRx library running command :
-```bash
- ng add @ngrx/store@latest 
- ```
-To use NgRX Effects, install NgRx effects library running command :
-```bash
-ng add @ngrx/effects@latest 
-``` 
-To use NgRX Signal store, install NgRx signal store library running command :
-```bash
-ng add @ngrx/signals@latest
-```
+# Objectives:
 
-# Development server
+Here, we will learn how to:
+✅ Structure a feature using NgRx State, Actions, Reducers, and Effects.
+✅ Perform full CRUD (Create, Read, Update, Delete) operations with a mock backend using json-server.
+✅ Handle immutable array updates in your reducer for managing a list of expenses.
+✅ Create a suite of advanced, memoized NgRx Selectors to derive meaningful data from your state.
+✅ Build a reactive dashboard that updates automatically when your state changes.
+✅ Persist your data with ngrx-store-localstorage.
+✅ Build a clean UI with Angular Standalone Components.
 
-To start a local development server, run:
-
-```bash
-ng serve
-```
-
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+This project is perfect for developers who want to move beyond the basics and see how to leverage NgRx to build smart, reactive, and feature-rich user interfaces.
