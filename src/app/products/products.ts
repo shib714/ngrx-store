@@ -19,16 +19,29 @@ export class Products {
 
   private productApiService = inject(ProductApiService);
 
-  products$!: Observable<IProduct[]>;
+  //products$!: Observable<IProduct[]>;
   error$!: Observable<string | null>;
   cartStore = inject(CartStore);
 
+  private store = inject(Store<{ cart: { products: IProduct[] } }>);
+
+
   //all products in the page are loaded using ProductActions
-  constructor(private store: Store<{ cart: { products: IProduct[] } }>) {
+  // constructor(private store: Store<{ cart: { products: IProduct[] } }>) {
+  //   this.store.dispatch(ProductActions.loadProducts());
+  //   this.products$ = this.store.select(ProductSelectors.selectAllProducts);
+  //   this.error$ = this.store.select(ProductSelectors.selectProductError);
+  // }
+
+  //this.store.dispatch(ProductActions.loadProducts());
+  products$ = this.store.select(ProductSelectors.selectAllProducts);
+  errors$ = this.store.select(ProductSelectors.selectProductError);
+
+  constructor() {
     this.store.dispatch(ProductActions.loadProducts());
-    this.products$ = this.store.select(ProductSelectors.selectAllProducts);
-    this.error$ = this.store.select(ProductSelectors.selectProductError);
   }
+
+
 
   addProductToCart(product: IProduct) {
     this.cartStore.addToCart(product);
