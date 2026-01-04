@@ -38,7 +38,11 @@ To install JSON SERVER as mock backend, run the following command (-g to install
 npm install -g json-server
 ```
 
-To start json server, run json-server db/data.json (assuming you gave data.json file in db folder of your roor project. You can browse the API from the end point with the URL provided: http://localhost:3000/expenses
+To start json server, run 
+```bash
+json-server db/data.json
+```
+(assuming you created data.json file in db folder of your roor project. You can browse the API from the end point with the URL provided: http://localhost:3000/expenses
 
 # Objectives:
 
