@@ -1,9 +1,9 @@
 import { inject, Injectable } from "@angular/core";
-import { ProductApiService } from "../../services/product-api.service";
 import { Actions, createEffect, ofType } from "@ngrx/effects";
-import * as ProductActions from "../../states/product/product.action";
 import { switchMap, map, catchError, of } from "rxjs";
-import { IProduct } from "../../models/product.interface";
+import { IProduct } from "../../shopping-cart/models/product.interface";
+import { ProductApiService } from "../services/product-api.service";
+import * as ProductActions from "../states/product.action";
 
 // will need to install @ngrx/effects by running npm i @ngrx/effects
 @Injectable()

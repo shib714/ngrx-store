@@ -8,15 +8,15 @@ export const routes: Routes = [
     },
     {
         path: 'products',
-        loadComponent: () => import('./products/products').then(m => m.Products),
+        loadComponent: () => import('./shopping-cart/components/products/products').then(m => m.Products),
     },
     {
         path: 'cart',
-        loadComponent: () => import('./cart/cart').then(m => m.Cart),
+        loadComponent: () => import('./shopping-cart/components/cart/cart').then(m => m.Cart),
     },
     {
         path: 'counter',
-        loadComponent: () => import('./counter-component/counter').then(m => m.Counter),
+        loadComponent: () => import('./counter/components/counter').then(m => m.Counter),
     }
 
 ];

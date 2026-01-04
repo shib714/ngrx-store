@@ -3,12 +3,12 @@ import { RouterLink, RouterOutlet } from '@angular/router';
 import { Observable } from 'rxjs';
 import { AppState } from './states/app.state';
 import { Store } from '@ngrx/store';
-import { selectCount } from './states/counter/counter.select';
 import { CommonModule } from '@angular/common';
-
-import { CartStore } from './store/cart.store';
-import { decrement, increment, reset } from './states/counter/counter.actions';
 import { Nav } from './nav/nav';
+import { CartStore } from './shopping-cart/store/cart.store';
+import { selectCount } from './counter/states/counter.select';
+import { increment, decrement, reset } from './counter/states/counter.actions';
+
 //For help: https://www.youtube.com/watch?v=aym8Yntel2E&t=1945s
 
 @Component({

@@ -9,6 +9,7 @@ import {
 import { computed } from '@angular/core';
 import { IProduct } from '../models/product.interface';
 
+
 export function calculateTotalPrice(products: IProduct[]) {
     return products.reduce((total, product) => total + (product.price * product.quantity), 0)
 }

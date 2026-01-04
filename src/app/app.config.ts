@@ -3,10 +3,13 @@ import { provideRouter } from '@angular/router';
 import { routes } from './app.routes';
 import { provideState, provideStore } from '@ngrx/store';
 import { provideEffects } from '@ngrx/effects';
-import { ProductEffect } from './states/product/product.effect';
-import { productReducer } from './states/product/product.reducer';
+
 import { provideStoreDevtools } from '@ngrx/store-devtools';
-import { counterReducer } from './states/counter/counter.reducer';
+
+import { ProductEffect } from './shopping-cart/states/product.effect';
+import { productReducer } from './shopping-cart/states/product.reducer';
+import { counterReducer } from './counter/states/counter.reducer';
+
 
 
 export const appConfig: ApplicationConfig = {

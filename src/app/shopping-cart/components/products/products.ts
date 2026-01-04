@@ -2,12 +2,14 @@ import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ProductCard } from './producd-card/product-card';
-import { IProduct } from '../models/product.interface';
-import { ProductApiService } from '../services/product-api.service';
-import { CartStore } from '../store/cart.store';
 import { Store } from '@ngrx/store';
-import * as ProductActions from '../states/product/product.action';
-import * as ProductSelectors from '../states/product/product.selector';
+import { IProduct } from '../../models/product.interface';
+import { ProductApiService } from '../../services/product-api.service';
+import { CartStore } from '../../store/cart.store';
+import * as ProductActions from '../../states/product.action';
+import * as ProductSelectors from '../../states/product.selector';
+
+
 
 @Component({
   selector: 'products',
