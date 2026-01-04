@@ -9,6 +9,37 @@ Expense Tracker application demonstrate the use of NGRX RXJS  with Angular from 
 
 NGRX with store, effects, JSON-SERVER to simulate CRUD operations
 
+# Installation
+
+To install NGRX store, run the following command:
+
+```bash
+ng add @ngrx/store@latest
+```
+
+To install Effects, run the following command
+```bash
+ng add @ngrx/effects@latest
+```
+
+To install Store Devtools for debuggibg, run the following command
+```bash
+ng add @ngrx/store-devtools@latest
+```
+
+To install localstore, run the following command
+```bash
+npm i ngrx-store-localstorage
+```
+
+To install JSON SERVER as mock backend, run the following command (-g to install globally):
+
+```bash
+npm install -g json-server
+```
+
+To start json server, run json-server db/data.json (assuming you gave data.json file in db folder of your roor project. You can browse the API from the end point with the URL provided: http://localhost:3000/expenses
+
 # Objectives:
 
 Here, we will learn how to:
