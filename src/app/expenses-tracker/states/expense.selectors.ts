@@ -1,0 +1,51 @@
+import { createFeatureSelector, createSelector } from "@ngrx/store";
+import { ExpenseState } from "../models/expense.model";
+import * as fromExpenses from './expense.reducer';
+
+export const selectExpenseState = createFeatureSelector<ExpenseState>(fromExpenses.expensesFeatureKey);
+
+//basic selectors
+
+export const selectAllExpenses = createSelector(
+  selectExpenseState,
+  (state) => state.items
+);
+
+export const selectExpensesLoading = createSelector(
+  selectExpenseState,
+  (state) => state.loading
+);
+
+export const selectExpenseError = createSelector(
+  selectExpenseState,
+  (state) => state.error
+);
+
+
+export const selectIncomeItems = createSelector(
+  selectAllExpenses,
+  (expenses) => expenses.filter(expense => expense.category ==='Income')
+);
+
+export const selectExpenseItems = createSelector(
+  selectAllExpenses,
+  (expenses) => expenses.filter(expense => expense.category !== 'Income')
+);
+
+
+export const selectTotalIncome = createSelector(
+  selectIncomeItems,
+  (incomeItems) => incomeItems.reduce((total, item) => total + item.amount, 0)
+);
+
+export const selectTotalExpense = createSelector(
+  selectExpenseItems,
+  (expenseItems) => expenseItems.reduce((total, item) => total + item.amount, 0)
+);
+
+
+export const selectNetBalance = createSelector(
+  selectTotalIncome,
+  selectTotalExpense,
+  (totalIncome, totalExpense) => totalIncome - totalExpense
+);

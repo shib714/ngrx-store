@@ -3,23 +3,30 @@
     {
       "id": "375d75a2-e85f-47e1-a7b7-1ab52750d4aa",
       "description": "Monthly Salary",
-      "amount": 2000,
+      "amount": 2500,
       "category": "Income",
-      "date": "2025-06-18T00:00:00.000Z"
-    },
-    {
-      "id": "d101b04d-1daa-4a80-82d3-fb125f00a4d9",
-      "description": "Grocery Shopping",
-      "amount": 10.75,
-      "category": "Food",
-      "date": "2025-06-11T00:00:00.000Z"
+      "date": "2026-01-05"
     },
     {
       "id": "9f9d61ef-76fb-4097-8355-ca17f475b9bc",
       "description": "Utilities Bill",
-      "amount": 130.10,
+      "amount": 120,
       "category": "Shopping",
-      "date": "2025-06-20T00:00:00.000Z"
+      "date": "2025-06-20"
+    },
+    {
+      "id": "81a4551d-e3f2-47bd-b0a7-ffc07e8a640d",
+      "description": "Grocery",
+      "amount": 500,
+      "category": "Food",
+      "date": "2026-01-11"
+    },
+    {
+      "id": "65bf6b55-504a-4658-8163-9ea2752d4b4d",
+      "description": "Tution Fees",
+      "amount": 100,
+      "category": "Other",
+      "date": "2026-01-11"
     }
   ]
 }

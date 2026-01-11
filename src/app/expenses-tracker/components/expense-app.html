@@ -1,0 +1,91 @@
+<div class="tracker-container">
+    <h1>Expense Tracker Dashboard</h1>
+
+    <!-- Dashboard Summary -->
+    <section class="dashboard-summary">
+        <div class="summary-card income">
+            <p>Total Income</p>
+            <span>{{ (totalIncome$ | async) | currency:'USD' }}</span>
+        </div>
+        <div class="summary-card expenses">
+            <p>Total Expenses</p>
+            <span>{{ (totalExpenses$ | async) | currency:'USD' }}</span>
+        </div>
+        <div class="summary-card balance"
+            [ngClass]="{'positive-balance': (netBalance$ | async)! > 0, 'negative-balance': (netBalance$ | async)! < 0}">
+            <p>Net Balance</p>
+            <span>{{ (netBalance$ | async) | currency:'USD' }}</span>
+        </div>
+    </section>
+
+    <!-- Add/Edit Form -->
+    <section class="form-section">
+        <h3>{{ isEditMode() ? 'Edit' : 'Add New' }} Transaction</h3>
+        <form>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    <input type="text" id="description" [field]="expenseForm.description">
+                </div>
+                <div class="form-group">
+                    <label for="amount">Amount</label>
+                    <input type="number" id="amount" [field]="expenseForm.amount">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="category">Category</label>
+                    <!-- CORRECTED: Added a disabled default option and handle null value -->
+                    <select [field]="expenseForm.category" aria-label="Select a category">
+                        <option value="" disabled>Select a category</option>
+                        @for(cat of expenseCategories; track cat) {
+                        <option [value]="cat">{{ cat }}</option>
+                        }
+                    </select>
+
+                </div>
+                <div class="form-group">
+                    <label for="date">Date</label>
+                    <input type="date" id="date" [field]="expenseForm.date">
+                </div>
+            </div>
+            <div class="form-actions">
+                <button type="submit" [disabled]="expenseForm().invalid() || (isLoading$ | async)" (click)="saveExpense()">{{
+                    isEditMode() ? 'Update' :
+                    'Add' }}</button>
+                @if(isEditMode()) {
+                <button type="button" (click)="onCancel()">Cancel</button>
+                }
+
+            </div>
+        </form>
+    </section>
+
+    <!-- Transaction List -->
+    <section class="list-section">
+        <h3>Recent Transactions</h3>
+        @if(isLoading$ | async) {
+        <div class="loading">Loading...</div>
+        }
+        <ul>
+            @for( expense of allExpenses$ | async; track expense.id) {
+                <li>
+                <!-- <li *ngFor="let" [ngClass]="{'is-income': expense.category === 'Income'}"> -->
+                <div class="item-info">
+                    <span class="item-category">{{ expense.category }}</span>
+                    <span class="item-description">{{ expense.description }}</span>
+                    <span class="item-date">{{ expense.date | date:'mediumDate' }}</span>
+                </div>
+                <div class="item-details">
+                    <span class="item-amount">{{ expense.amount | currency:'USD' }}</span>
+                    <div class="item-actions">
+                        <button (click)="onEdit(expense)">Edit</button>
+                        <button (click)="onDelete(expense.id)">Delete</button>
+                    </div>
+                </div>
+            </li>
+            }
+            
+        </ul>
+    </section>
+</div>

@@ -57,3 +57,5 @@ To start json server, run
 json-server db/data.json
 ```
 (assuming you created data.json file in db folder of your roor project. You can browse the API from the end point with the URL provided: http://localhost:3000/expenses
+
+To see the app up and running, please start json server by running 'json-server db/data.json' command in the terminal first and then run npm start. 

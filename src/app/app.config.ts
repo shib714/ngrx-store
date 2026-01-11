@@ -3,6 +3,8 @@ import { provideRouter } from '@angular/router';
 import { routes } from './app.routes';
 import { provideState, provideStore } from '@ngrx/store';
 import { provideEffects } from '@ngrx/effects';
+import * as fromExpenses from './expenses-tracker/states/expense.reducer';
+import { ExpenseEffects } from './expenses-tracker/states/expense.effects';
 
 import { provideStoreDevtools } from '@ngrx/store-devtools';
 
@@ -17,6 +19,9 @@ export const appConfig: ApplicationConfig = {
     provideBrowserGlobalErrorListeners(),
     provideRouter(routes),
     provideStore(),
+
+    provideState(fromExpenses.expensesFeatureKey, fromExpenses.expensereducer),
+    provideEffects([ExpenseEffects]),
     provideState({ name: 'counter', reducer: counterReducer }),
     provideState({ name: 'product', reducer: productReducer }),
     provideEffects(ProductEffect),

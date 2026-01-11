@@ -17,6 +17,11 @@ export const routes: Routes = [
     {
         path: 'counter',
         loadComponent: () => import('./counter/components/counter').then(m => m.Counter),
-    }
+    },
+    {
+        path: 'expense-app',
+        loadComponent: () => import('./expenses-tracker/components/expense-app').then(m => m.ExpenseApp),
+
+    },
 
 ];
